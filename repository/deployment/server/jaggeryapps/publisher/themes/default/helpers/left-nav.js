@@ -59,6 +59,32 @@ var generateLeftNavJson = function(data, listPartial) {
                     ]
                 };
                 break;
+            case "PUBLISHED":
+                leftNavItems = { leftNavLinks :
+                    [
+                        /*
+                         {
+                         name : "Browse All",
+                         additionalClasses : "prominent-link",
+                         url : "/publisher/assets/" + data.shortName + "/"
+                         },*/
+
+                        {
+                            name : "Overview",
+                            iconClass : "icon-list-alt",
+                            additionalClasses : (listPartial == "view-asset" ) ? "prominent-link" : null,
+                            url : "/publisher/asset/operations/view/" + data.shortName + "/" + data.artifact.id + ""
+                        },
+                        {
+                            name : "Life Cycle",
+                            iconClass : "icon-retweet",
+                            additionalClasses : (listPartial == "lifecycle-asset" ) ? "prominent-link" : null,
+                            url : "/publisher/asset/operations/lifecycle/" + data.shortName + "/" + data.artifact.id + ""
+                        }
+                    ]
+                };
+                break;
+
             default:
                    leftNavItems = { leftNavLinks :
                     [
