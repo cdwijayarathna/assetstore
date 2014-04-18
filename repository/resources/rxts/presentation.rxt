@@ -55,13 +55,13 @@
     </table>
     <table name="Location">
       <field type="text" url="true">
-        <name>Keynote Version</name>
+        <name label="Keynote URL">Keynote Version</name>
       </field>
       <field type="text" url="true" required="true">
-        <name>Powerpoint Version</name>
+        <name label="Public URL (Dropbox)">Powerpoint Version</name>
       </field>
       <field type="text" url="true">
-        <name label="Public URL (Dropbox)">URL</name>
+        <name label="Powerpoint URL">URL</name>
       </field>
     </table>
     <table name="Contacts">
