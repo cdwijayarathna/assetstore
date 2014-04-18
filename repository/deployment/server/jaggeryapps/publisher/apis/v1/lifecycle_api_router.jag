@@ -168,7 +168,7 @@ require('/modules/publisher.js').exec(function(ctx) {
       try {
         var artifact = artifactManager.get(id);
         log.debug('Calling promoteLifecycleState for action : ' + action);
-        lof.info(artifact.attributes.overview_provider);
+        log.info(artifact.attributes.overview_provider);
         artifactManager.promoteLifecycleState(action, artifact);
 
         if (comment) {
