@@ -395,7 +395,8 @@
 
     <!-- To enable mail transport sender, ncomment the following and change the parameters
          accordingly-->
-    <!--<transportSender name="mailto"
+
+    <transportSender name="mailto"
                      class="org.apache.axis2.transport.mail.MailTransportSender">
         <parameter name="mail.smtp.from">wso2demomail@gmail.com</parameter>
         <parameter name="mail.smtp.user">wso2demomail</parameter>
@@ -405,7 +406,8 @@
         <parameter name="mail.smtp.port">587</parameter>
         <parameter name="mail.smtp.starttls.enable">true</parameter>
         <parameter name="mail.smtp.auth">true</parameter>
-    </transportSender>-->
+
+    </transportSender>
 
     <!--Please uncomment this in Multiple Instance Scenario if you want to use NIO sender -->
     <!--  
@@ -499,7 +501,10 @@
         <!--system predefined phase-->
         <!--these phase will run irrespective of the service-->
         <phase name="PolicyDetermination"/>
-        <phase name="MessageOut"/>
+        <phase name="MessageOut">
+            <handler name="EmailTransformHandler"
+                 class="org.wso2.carbon.registry.samples.notifications.EmailTransformHandler"/>
+        </phase>
         <phase name="Security"/>
 
         <!--
