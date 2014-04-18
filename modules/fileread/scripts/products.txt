@@ -1,0 +1,49 @@
+Carbon 4.2.0   
+Carbon 4.1.0     
+Carbon 4.0.3
+Enterprise Service Bus 4.8.1
+Enterprise Service Bus 4.8.0
+Enterprise Service Bus 4.7.0    
+Governance Registry 4.6.0
+Governance Registry 4.5.3  
+Governance Registry 4.5.2
+Identity Server 4.6.0
+Identity Server 4.5.0
+Identity Server 4.1.0  
+API Manager 1.6.0
+API Manager 1.5.0
+API Manager 1.4.0
+Elastic Load Balancer 2.1.0   
+Elastic Load Balancer 2.0.3        
+Elastic Load Balancer 2.0.1
+Business Process Server 3.2.0 
+Business Process Server 3.1.0   
+Business Process Server 3.0.0
+Application Server 5.2.1 
+Application Server 5.2.0
+Application Server 5.1.0
+Data Services Server 3.1.1 
+Data Services Server 3.1.0
+Data Services Server 3.0.1
+Business Activity Monitor 2.4.0
+Business Activity Monitor 2.3.0
+Business Activity Monitor 2.2.0 
+Complex Event Processor 3.0.0
+Complex Event Processor 2.1.0  
+Complex Event Processor 2.0.1
+Message Broker 2.1.1
+Message Broker 2.1.0  
+Message Broker 2.0.1 
+Storage Server 1.1.0 
+Storage Server 1.0.3
+Business Rules Server 2.0.0
+Gadget Server 1.4.0
+App Factory 1.0.0
+App Cloud 
+Stratos 2.0.0
+Developer Studio 3.6.0
+Developer Studio 3.5.0
+Developer Studio 3.2.0  
+User Engagement Server 1.0.0
+Enterprise Store 1.0.0 
+Enterprise Mobility Manager 1.0.0

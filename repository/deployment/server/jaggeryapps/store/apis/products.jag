@@ -1,0 +1,41 @@
+<%
+var matcher = new URIMatcher(request.getRequestURI());
+// http://localhost:9763/caramel/apis/asset/1234/comments
+
+require('/modules/store.js').exec(function (ctx) {
+    var aid,
+            server = require('store').server,
+            tenant = server.tenant(request, session),
+            tenantId = tenant.tenantId,
+            store = require('/modules/store.js').store(tenantId, session),
+            user = server.current(session);
+
+    // if (!user) {
+    //     response.sendError(401, 'Unauthorized');
+    //     return;
+    // }
+
+    if (matcher.match('/{context}/apis123/products')) {
+            var tags = [];
+            var fileread = require('fileread'); 
+                var list = fileread.getList(); 
+            //return myFunc.getList(); 
+            //var tagManager = new tagModule.TagManager();
+            tags = list.split('\n');
+            //tagManager.process(tags);
+
+
+            var counter = 0;
+            var tagArray = [];
+
+            for (var index in tags) {
+                tagArray.push({id: counter, name: tags[index]});
+            }
+
+            print(tagArray);
+        return;
+    }
+    response.sendError(404, 'API Endpoint Not Found');
+
+}, request, response, session);
+%>

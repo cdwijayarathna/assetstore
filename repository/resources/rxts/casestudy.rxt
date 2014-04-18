@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<artifactType type="application/vnd.wso2-casestudy+xml" shortName="casestudy" singularLabel="Case Study" pluralLabel="Case Studies" hasNamespace="false" iconSet="10">
+  <storagePath>/casestudies/@{overview_provider}/@{overview_name}/@{overview_version}</storagePath>
+  <nameAttribute>overview_name</nameAttribute>
+  <ui>
+    <list>
+      <column name="Provider">
+        <data type="path" value="overview_provider" href="@{storagePath}"/>
+      </column>
+      <column name="Name">
+        <data type="path" value="overview_name" href="@{storagePath}"/>
+      </column>
+      <column name="Version">
+        <data type="path" value="overview_version" href="@{storagePath}"/>
+      </column>
+    </list>
+  </ui>
+  <content>
+    <table name="Overview">
+      <field type="text" required="true">
+        <name label="Author">Provider</name>
+      </field>
+      <field type="text" required="true">
+        <name>Name</name>
+      </field>
+      <field type="text" required="true">
+        <name>Version</name>
+      </field>
+      
+      <field type="date" >
+        <name label="Date">Data</name>
+      </field>
+      
+      
+      <field type="text-area" required="true">
+        <name>Description</name>
+      </field>
+
+      <field type="text" required="true">
+        <name label = "Product Names">ProductNames</name>
+      </field>
+
+    </table>
+
+    <table name = "Partners">
+        <field type="options"> 
+        <name>Share with Partners</name>
+         <values> <value>No</value> <value>Yes</value> 
+         </values>
+      </field>
+    </table>
+
+    <table name = "Client Info">
+      <field type="text" required="true">
+        <name label="Client Name">Client Name</name>
+      </field>
+
+      <field type="text">
+        <name label="Industry">Industry</name>
+      </field>
+      <field type="text">
+        <name label="Region">Region</name>
+      </field>
+      <field type="text">
+        <name label="Country">Country</name>
+      </field>
+
+
+    </table>
+
+   
+
+    <table name="Location">
+      <field type="text" url="true">
+        <name label="URL">URL</name>
+      </field>
+    </table>
+    <table name="Images">
+      <field type="text" required="true">
+        <name>Thumbnail</name>
+      </field>
+      <field type="text">
+        <name>Banner</name>
+      </field>
+    </table>
+  </content>
+</artifactType>
