@@ -37,7 +37,7 @@ routeManager.register('GET', 'publisher', '/publisher/api/asset-tag/{type}', fun
     if(context.params.type == 'owner'){
         var server = require("../../modules/server.js");
         var userList = []; 
-        userList = server.userManager().getUserListOfRole("Internal/private_tharindu");
+        userList = server.userManager().listUsers("*",-1);
         var tagManager = new tagModule.TagManager();
         tags = userList;
     }  
