@@ -46,6 +46,8 @@ var DEFAULT_PAGIN = {'start':0, 'count':1000 , 'sortOrder':'desc','sortBy': 'ove
 var log = new Log();
 
 routeMnger.register('GET', 'publisher', '/publisher/assets/{type}/', function(context) {
+
+	var shortName = (context.params.type) || '';
 	var query = request.getParameter("query");
 	var sortby = request.getParameter("sortby");
 	var sort = request.getParameter("sort");
@@ -56,6 +58,8 @@ routeMnger.register('GET', 'publisher', '/publisher/assets/{type}/', function(co
 		var artifactManager = rxtManager.getArtifactManager(type);
 
 		var artifacts = artifactManager.list(DEFAULT_PAGE) || [];
+
+
 
 		// for queries
 		if(query) {
@@ -74,6 +78,10 @@ routeMnger.register('GET', 'publisher', '/publisher/assets/{type}/', function(co
 
 		}
 
+		var rxtTemplate = rxtManager.findAssetTemplate(function (template) {
+            return (template.shortName == shortName) ? true : false;
+        });
+
 		dataInjector.inject(artifacts, DataInjectorModes.DISPLAY);
 
         //Perform some filtering logic on the artifacts
@@ -84,6 +92,7 @@ routeMnger.register('GET', 'publisher', '/publisher/assets/{type}/', function(co
 			cuser : server.current(session),
 			shortName : type,
 			artifacts : artifacts,
+			rxtTemplate : rxtTemplate,
 			query : query,
 			title : type
 		});

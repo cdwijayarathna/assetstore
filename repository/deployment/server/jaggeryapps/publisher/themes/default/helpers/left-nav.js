@@ -5,9 +5,8 @@ var deploymentManager=deploymentManagement.cached();
 breadcrumbItems = deploymentManager.getAssetData();
 var log = new Log();
 var generateLeftNavJson = function(data, listPartial) {
-	
-	var currentTypeObj = getTypeObj(data.shortName);
-	
+
+    var currentTypeObj = getTypeObj(data.shortName);
     var leftNavItems = { leftNavLinks :
         [
            /*
@@ -18,7 +17,7 @@ var generateLeftNavJson = function(data, listPartial) {
                        },*/
            
             {
-                name : "Add " + data.shortName + "",
+                name : "Add " + data.rxtTemplate.singularLabel + "",
                 iconClass : "icon-plus-sign-alt",
                 additionalClasses : (listPartial == "add-asset" ) ? "prominent-link" : null,
                 url : "/publisher/asset/" + data.shortName + ""
@@ -122,10 +121,10 @@ var generateLeftNavJson = function(data, listPartial) {
 };
 
 getTypeObj = function(type){
-	for(item in breadcrumbItems){
-		var obj = breadcrumbItems[item]
-		if(obj.assetType == type){
-			return obj;
-		}
-	}
+    for(item in breadcrumbItems){
+        var obj = breadcrumbItems[item]
+        if(obj.assetType == type){
+            return obj;
+        }
+    }
 }
