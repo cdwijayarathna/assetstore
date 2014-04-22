@@ -111,12 +111,17 @@ routeMnger.register('GET', 'publisher', '/publisher/assets/{type}/', function(co
 routeMnger.register('GET', 'publisher', '/publisher/assets/{operation}/{type}/', function (context) {
     var operation = (context.params.operation) || '';
     var type = context.params.type;
+    var shortName = (context.params.type) || '';
+    var rxtTemplate = rxtManager.findAssetTemplate(function (template) {
+            return (template.shortName == shortName) ? true : false;
+        });
     if (operation == 'statistics') {
         try {
             caramel.render({
                 op: operation,
                 cuser: server.current(session),
                 shortName: type,
+                rxtTemplate : rxtTemplate,
                 title: type
             });
 
