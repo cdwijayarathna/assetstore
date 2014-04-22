@@ -60,10 +60,10 @@ var render = function (theme, data, meta, require) {
             }
         ],
         right: [
-            {
-                partial: 'recent-assets',
-                 context: require('/helpers/asset.js').formatRatings(data.recentAssets)
-            },
+            // {
+            //     partial: 'recent-assets',
+            //      context: require('/helpers/asset.js').formatRatings(data.recentAssets)
+            // },
             {
                 partial: 'tags',
                 context: data.tags
