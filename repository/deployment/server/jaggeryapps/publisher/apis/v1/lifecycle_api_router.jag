@@ -9,13 +9,13 @@
  the given index.
  GET api/lifecycle/actions/{type}/{id}                       : Gets the actions available to an asset at a given state
 
- DELETE api/lifecycle/{asset-type}/{artifact-id}		     : Detaches the current lifecycle from the artifact
+ DELETE api/lifecycle/{asset-type}/{artifact-id}         : Detaches the current lifecycle from the artifact
  DELETE api/lifecycle/checklistitem/{index}/{type}/{id}      : Unticks a check list item at the given index
 
- POST  api/lifecycle/{asset-type}/{artifact-id}   	         : Attach the provided lifecycle to the artifact
+ POST  api/lifecycle/{asset-type}/{artifact-id}              : Attach the provided lifecycle to the artifact
  POST api/lifecycle/checklistitem/{index}/{type}/{id}        : Ticks a check list item at the given index
 
- PUT api/lifecycle/{action}/{asset-type}/{artifact-id}	     : Performs the provided the action on the provided asset
+ PUT api/lifecycle/{action}/{asset-type}/{artifact-id}       : Performs the provided the action on the provided asset
 
  Filename:lifecycle_api_router.js
  Created Date: 6/8/2013

@@ -37,7 +37,7 @@
       </field>
 
        <field type="text" required="true">
-        <name label = "Product Names">Product Names</name>
+        <name label = "Product Names">ProductNames</name>
       </field>
        
       
