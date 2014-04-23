@@ -57,7 +57,7 @@
 
     <table name="Location">
       <field type="text" url="true">
-        <name label="url">URL</name>
+        <name label="SVN Location">URL</name>
       </field>
     </table>
     <table name="Images">
