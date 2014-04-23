@@ -38,12 +38,12 @@ $(function () {
             this.tagUrl = element.meta.tagApi + 'products';
             limit = 1;
         }
-        else if(element.id =='overview_region'){
+        else if(element.id =='clientInfo_region'){
             this.tagUrl = element.meta.tagApi + 'region';
             limit = 1;
 
             
-        }else if(element.id =='overview_country'){
+        }else if(element.id =='clientInfo_country'){
             this.tagUrl = element.meta.tagApi + 'country';
             limit = 1;
            
@@ -83,7 +83,7 @@ $(function () {
         var data = {};
         var tags=[];
         var selectedTags;
-        if(element.id == 'tag-container' || element.id =='contacts_owner' || element.id =='overview_productnames' || element.id =='overview_productname' || element.id =='overview_region' || element.id =='overview_country'){
+        if(element.id == 'tag-container' || element.id =='contacts_owner' || element.id =='overview_productnames' || element.id =='overview_productname' || element.id =='clientInfo_region' || element.id =='clientInfo_country'){
             selectedTags = $(this.tagContainer).tokenInput('get');
 
             for (var index in selectedTags) {
