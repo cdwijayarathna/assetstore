@@ -53,11 +53,50 @@ $(function() {
         			axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
         			axisLabelPadding: 5,
 					ticks : parsedResponse.bookmarkTicks
-				}
+				},
+
+				grid: {
+                hoverable: true,
+                borderWidth: 2,
+                backgroundColor: { colors: ["#ffffff", "#EDF5FF"] }
+            	}
+
+
 			};
 
 
 			$.plot($("#placeholder1"), data, options);
+			var previousPoint = null, previousLabel = null;
+
+
+            $("#placeholder1").bind("plothover", function (event, pos, item) {
+                if (item) {
+
+                    if ((previousLabel != item.series.label) || (previousPoint != item.dataIndex)) {
+
+                        previousPoint = item.dataIndex;
+                        previousLabel = item.series.label;
+                        $("#tooltip").remove();
+ 
+                        var x = item.datapoint[0];
+                        var y = item.datapoint[1];
+ 
+                        var color = item.series.color;
+ 
+                        //console.log(item.series.xaxis.ticks[x].label);            
+ 						
+                        showTooltip(item.pageX,item.pageY,color, item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong> Downloads");
+
+                    }
+                    
+                } else {
+                    $("#tooltip").remove();
+                    previousPoint = null;
+                }
+            });
+
+            
+
 			
 
 			
