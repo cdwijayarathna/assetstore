@@ -46,7 +46,7 @@ $(function() {
 
 				},
 				xaxis : {
-					//labelAngle : 45,
+					labelAngle : 45,
 					axisLabel: 'Asset Name With Version',
         			axisLabelUseCanvas: true,
         			axisLabelFontSizePixels: 12,
@@ -95,7 +95,7 @@ $(function() {
                 }
             });
 
-            
+
 
 			
 
@@ -124,7 +124,7 @@ $(function() {
 
 				},
 				xaxis : {
-					//labelAngle : 45,
+					labelAngle : 45,
 					axisLabel: 'Asset Name With Version',
         			axisLabelUseCanvas: true,
         			axisLabelFontSizePixels: 12,
@@ -242,7 +242,7 @@ var onDateSelected = function(from, to) {
 
 				},
 				xaxis : {
-					//labelAngle : 45,
+					labelAngle : 45,
 					axisLabel: 'Asset Name With Version',
         			axisLabelUseCanvas: true,
         			axisLabelFontSizePixels: 12,
