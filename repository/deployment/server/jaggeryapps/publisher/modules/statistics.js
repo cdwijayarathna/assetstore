@@ -19,7 +19,7 @@ var getBookmarkStats = function (loggedInUser, currentTenant) {
         "WHERE RS.REG_CREATOR = '" + loggedInUser + "' AND " +
         "RR.REG_TENANT_ID = '" + currentTenant + "' AND " +
         "RP.REG_PATH_VALUE like '/_system/governance/users/%' AND " +
-        "RR.REG_NAME IS NOT NULL GROUP BY RR.REG_NAME" ;
+        "RR.REG_NAME IS NOT NULL GROUP BY RR.REG_NAME ORDER BY COUNT(RR.REG_NAME) DESC LIMIT 10" ;
     return db.query(query);
 
 };
@@ -34,7 +34,7 @@ var getHotAssetStats = function (startDate, endDate, currentTenant) {
         "RR.REG_TENANT_ID = '" + currentTenant + "' AND " +
         "RR.REG_LAST_UPDATED_TIME BETWEEN '" + startDate + "' AND '" + endDate + "' AND " +
         "RR.REG_NAME IS NOT NULL " +
-        "GROUP BY RR.REG_NAME";
+        "GROUP BY RR.REG_NAME ORDER BY COUNT(RR.REG_NAME) DESC LIMIT 10";
 
     return db.query(query);
 }
