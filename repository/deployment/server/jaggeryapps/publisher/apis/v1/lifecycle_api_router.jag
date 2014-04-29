@@ -195,14 +195,17 @@ require('/modules/publisher.js').exec(function (ctx) {
             try {
                 var email = require('email');
                 var sender = new email.Sender("smtp.gmail.com", "587", "wso2demomail", "mailpassword", "tls");
-                var receiver =
-                        [connector.getEmailForUid(artifact.attributes.overview_provider)];
+                //var receiver =
+                       // [connector.getEmailForUid(artifact.attributes.overview_provider)];
+                var um = server.userManager(server.current(session).tenantId);
+                var receiver = [um.getClaim(artifact.attributes.overview_provider,"http://wso2.org/claims/emailaddress",null)];
                 sender.from = "wso2demomail@gmail.com";
                 sender.to = receiver.toString();
                 sender.subject = "Your Asset at Asset Store has been rejected";
                 sender.text = "Your asset at asset store has been rejected,\n Reviewer comments : " + comment;
                 sender.send();
             } catch (e) {
+                log.info(e);
             }
 
         }
