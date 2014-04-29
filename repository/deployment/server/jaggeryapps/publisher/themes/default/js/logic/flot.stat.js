@@ -25,6 +25,7 @@ $(function() {
 				data : parsedResponse.bookmarkStats,
 				color : '#409628',
 				label : 'Assets',
+				clickable: true,
 				lines : {
 					show : true
 				},
@@ -36,15 +37,27 @@ $(function() {
 			var options = {
 				yaxis : {
 					show : true,
+					axisLabel: 'Downloads',
+				    axisLabelUseCanvas: true,
+				    axisLabelFontSizePixels: 11,
+				    axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+				    axisLabelPadding: 5,
 					tickDecimals : 0
 
 				},
 				xaxis : {
-					labelAngle : 90,
+					axisLabel: 'Asset Name With Version',
+        			axisLabelUseCanvas: true,
+        			axisLabelFontSizePixels: 12,
+        			axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+        			axisLabelPadding: 5,
 					ticks : parsedResponse.bookmarkTicks
 				}
 			};
+
+
 			$.plot($("#placeholder1"), data, options);
+			
 
 			
 			/* Hot assets stats graph */
@@ -62,11 +75,20 @@ $(function() {
 			var options2 = {
 				yaxis : {
 					show : true,
+					axisLabel: 'Downloads',
+				    axisLabelUseCanvas: true,
+				    axisLabelFontSizePixels: 11,
+				    axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+				    axisLabelPadding: 5,
 					tickDecimals : 0
 
 				},
 				xaxis : {
-					labelAngle : 90,
+					axisLabel: 'Asset Name With Version',
+        			axisLabelUseCanvas: true,
+        			axisLabelFontSizePixels: 12,
+        			axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+        			axisLabelPadding: 5,
 					ticks : parsedResponse.hotAssetTicks
 				}
 				
@@ -120,11 +142,20 @@ var onDateSelected = function(from, to) {
 			var options2 = {
 				yaxis : {
 					show : true,
+					axisLabel: 'Downloads',
+				    axisLabelUseCanvas: true,
+				    axisLabelFontSizePixels: 11,
+				    axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+				    axisLabelPadding: 5,
 					tickDecimals : 0
 
 				},
 				xaxis : {
-					labelAngle : 90,
+					axisLabel: 'Asset Name With Version',
+        			axisLabelUseCanvas: true,
+        			axisLabelFontSizePixels: 12,
+        			axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+        			axisLabelPadding: 5,
 					ticks : parsedResponse.hotAssetTicks
 				}
 				
