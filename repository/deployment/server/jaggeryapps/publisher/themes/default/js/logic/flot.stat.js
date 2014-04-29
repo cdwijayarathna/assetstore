@@ -39,13 +39,14 @@ $(function() {
 					show : true,
 					axisLabel: 'Downloads',
 				    axisLabelUseCanvas: true,
-				    axisLabelFontSizePixels: 11,
+				    axisLabelFontSizePixels: 12,
 				    axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
 				    axisLabelPadding: 5,
 					tickDecimals : 0
 
 				},
 				xaxis : {
+					//labelAngle : 45,
 					axisLabel: 'Asset Name With Version',
         			axisLabelUseCanvas: true,
         			axisLabelFontSizePixels: 12,
@@ -77,25 +78,76 @@ $(function() {
 					show : true,
 					axisLabel: 'Downloads',
 				    axisLabelUseCanvas: true,
-				    axisLabelFontSizePixels: 11,
+				    axisLabelFontSizePixels: 12,
 				    axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
 				    axisLabelPadding: 5,
 					tickDecimals : 0
 
 				},
 				xaxis : {
+					//labelAngle : 45,
 					axisLabel: 'Asset Name With Version',
         			axisLabelUseCanvas: true,
         			axisLabelFontSizePixels: 12,
         			axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
         			axisLabelPadding: 5,
 					ticks : parsedResponse.hotAssetTicks
-				}
+				},
+
+				grid: {
+                hoverable: true,
+                borderWidth: 2,
+                backgroundColor: { colors: ["#ffffff", "#EDF5FF"] }
+            	}
 				
 			};
 
 			$.plot($("#placeholder2"), data2, options2);
+			var previousPoint = null, previousLabel = null;
 
+
+            $("#placeholder2").bind("plothover", function (event, pos, item) {
+                if (item) {
+
+                    if ((previousLabel != item.series.label) || (previousPoint != item.dataIndex)) {
+
+                        previousPoint = item.dataIndex;
+                        previousLabel = item.series.label;
+                        $("#tooltip").remove();
+ 
+                        var x = item.datapoint[0];
+                        var y = item.datapoint[1];
+ 
+                        var color = item.series.color;
+ 
+                        //console.log(item.series.xaxis.ticks[x].label);            
+ 						
+                        showTooltip(item.pageX,item.pageY,color, item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong> Downloads");
+
+                    }
+                    
+                } else {
+                    $("#tooltip").remove();
+                    previousPoint = null;
+                }
+            });
+
+        function showTooltip(x, y, color, contents) {
+
+            $("<div id=\"tooltip\">" + contents + "</div>").css({
+                position: 'absolute',
+                display: 'none',
+                top: y - 40,
+                left: x - 120,
+                border: '2px solid ' + color,
+                padding: '3px',
+                'font-size': '9px',
+                'border-radius': '5px',
+                'background-color': '#fff',
+                'font-family': 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+                opacity: 0.9
+            }).appendTo("body").fadeIn(200);
+        }
 			
 		},
 		error : function(response) {
@@ -144,20 +196,26 @@ var onDateSelected = function(from, to) {
 					show : true,
 					axisLabel: 'Downloads',
 				    axisLabelUseCanvas: true,
-				    axisLabelFontSizePixels: 11,
+				    axisLabelFontSizePixels: 12,
 				    axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
 				    axisLabelPadding: 5,
 					tickDecimals : 0
 
 				},
 				xaxis : {
+					//labelAngle : 45,
 					axisLabel: 'Asset Name With Version',
         			axisLabelUseCanvas: true,
         			axisLabelFontSizePixels: 12,
         			axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
         			axisLabelPadding: 5,
 					ticks : parsedResponse.hotAssetTicks
-				}
+				},
+				grid: {
+                hoverable: true,
+                borderWidth: 2,
+                backgroundColor: { colors: ["#ffffff", "#EDF5FF"] }
+            	}
 				
 			};
 
