@@ -1,4 +1,4 @@
-assetstore
+Assetstore
 ==========
 
 ##Running the Asset Store
@@ -10,3 +10,6 @@ Go to this link - https://github.com/cdwijayarathna/assetstoreemailhandler clone
 Edit the content in repository/conf/user-mgt.xml with relevent user store configurations and the mailto element in repository/conf/axis2/axis2.xml file with relevent email sender configurations. 
 
 Navigate to ESHome/bin and run the product(using sh wso2server.sh)
+
+##Adding reviewers
+Go to management console. Refer the location Home>Configure>Users and Roles>Roles and click on Add New Internal Role. Create Reviewers for each asset type. Role names will be presentationreviewer, graphicreviewer, demoreviewer, analystreportreviewer, productlogoreviewer. 
