@@ -194,17 +194,23 @@ require('/modules/publisher.js').exec(function (ctx) {
         if (context.params.action == "Reject") {
             try {
                 var email = require('email');
-                var sender = new email.Sender("smtp.gmail.com", "587", "wso2demomail", "mailpassword", "tls");
-                //var receiver =
-                       // [connector.getEmailForUid(artifact.attributes.overview_provider)];
+                var carbon = require('carbon');
+                var axisconf = carbon.server.loadConfig('axis2/axis2.xml');
+                log.info(axisconf.*::['transportSender'].(@name=="mailto").*::['parameter'].(@name=="mail.smtp.from").text());
+                var host= axisconf.*::['transportSender'].(@name=="mailto").*::['parameter'].(@name=="mail.smtp.host").text();
+                var username = axisconf.*::['transportSender'].(@name=="mailto").*::['parameter'].(@name=="mail.smtp.user").text();
+                var password = axisconf.*::['transportSender'].(@name=="mailto").*::['parameter'].(@name=="mail.smtp.password").text();
+                var port = axisconf.*::['transportSender'].(@name=="mailto").*::['parameter'].(@name=="mail.smtp.port").text();
+                var sender = new email.Sender(host.toString(), port.toString(), username.toString(), password.toString(), "tls");
                 var um = server.userManager(server.current(session).tenantId);
                 var receiver = [um.getClaim(artifact.attributes.overview_provider,"http://wso2.org/claims/emailaddress",null)];
-                sender.from = "wso2demomail@gmail.com";
+                sender.from = axisconf.*::['transportSender'].(@name=="mailto").*::['parameter'].(@name=="mail.smtp.from").text();
                 sender.to = receiver.toString();
                 sender.subject = "Your Asset at Asset Store has been rejected";
                 sender.text = "Your asset at asset store has been rejected,\n Reviewer comments : " + comment;
                 sender.send();
             } catch (e) {
+                log.info("error-------------");
                 log.info(e);
             }
 
