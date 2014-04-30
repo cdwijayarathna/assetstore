@@ -12,4 +12,16 @@ Edit the content in repository/conf/user-mgt.xml with relevent user store config
 Navigate to ESHome/bin and run the product(using sh wso2server.sh)
 
 ##Adding reviewers
-Go to management console. Refer the location Home>Configure>Users and Roles>Roles and click on Add New Internal Role. Create Reviewers for each asset type. Role names will be presentationreviewer, graphicreviewer, demoreviewer, analystreportreviewer, productlogoreviewer. 
+Go to management console. Refer the location Home>Configure>Users and Roles>Roles and click on Add New Internal Role. Create Reviewers for each asset type. Role names will be presentationreviewer, graphicreviewer, demoreviewer, analystreportreviewer, productlogoreviewer.
+
+##Adding users to reviewer role
+Click on the Assign Users link on the required role you want to add user(s) and tick the usernames you want and update it. Select the Asset type you need to add reviewer from Home>Resources>Browse /system/governance(Eg. Home>Resources>Browse /system/governance/presentations), Click on Subscriptions and change the following - 
+
+Event - Change LC State
+NOtification - Email
+Email - Reviewer's email Address
+Frequency - None
+Hierarchical Subscription Method - Collection, Children and Grand Children
+
+
+The added users will get an email notification saying that they have been added to the reviewer role. They need to confirm it by clicking on the link in that mail. Please note that they need to log in to the management colsole before they click the link. 
