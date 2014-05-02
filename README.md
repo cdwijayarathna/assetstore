@@ -25,3 +25,6 @@ Hierarchical Subscription Method - Collection, Children and Grand Children
 
 
 The added users will get an email notification saying that they have been added to the reviewer role. They need to confirm it by clicking on the link in that mail. Please note that they need to log in to the management colsole before they click the link. 
+
+##Adding Products to give Suggestions
+When adding assets like presentation, the application it self provides suggestion when you start typing in Product Name field, when you need to update the product go to ESHome/modules/fileread/scripts/products.txt and update the document. Restart the Server. 
