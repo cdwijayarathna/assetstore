@@ -16,6 +16,7 @@ require('/modules/store.js').exec(function (ctx) {
             utility = require('/modules/util.js');
 
     caramel = require('caramel');
+    log.info("dowwwwwwwwww");
 
     if (!user) {
         response.sendError(401, 'Unauthorized');

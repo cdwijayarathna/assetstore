@@ -24,6 +24,10 @@ require('/modules/store.js').exec(function (ctx) {
         return;
     }
     
+    var carbon = require('carbon');
+    var usrconf = carbon.server.loadConfig('user-mgt.xml');
+    var adminUser = usrconf.*::['Realm'].*::['Configuration'].*::['AdminUser'].*::['UserName'].text();
+    var adminPassword = usrconf.*::['Realm'].*::['Configuration'].*::['AdminUser'].*::['Password'].text()
     var artifact = store.asset(type, aid);
     var ws = require("ws"); 
     var version = new ws.WSRequest(); 
@@ -43,7 +47,7 @@ require('/modules/store.js').exec(function (ctx) {
     var result;
 
     try {
-        version.open(options,"https://localhost:9443/admin/services/InfoAdminService", false,"appm","appm123$"); 
+        version.open(options,"https://localhost:9443/admin/services/InfoAdminService", false,adminUser.toString(),adminPassword.toString()); 
         version.send(payload); 
         result = version.responseE4X;
     } catch (e) {
