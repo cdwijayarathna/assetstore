@@ -25,3 +25,18 @@ Hierarchical Subscription Method - Collection, Children and Grand Children
 
 
 The added users will get an email notification saying that they have been added to the reviewer role. They need to confirm it by clicking on the link in that mail. Please note that they need to log in to the management colsole before they click the link. 
+
+##Adding Products to give Suggestions
+When adding assets like presentation, the application it self provides suggestion when you start typing in Product Name field, when you need to update the product go to ESHome/modules/fileread/scripts/products.txt and update the document. Restart the Server. 
+
+##User Guide
+Same user guide for WSO2 Enterprise Store which is available at https://docs.wso2.org/display/ES100/User+Guide will apply for asset store also. 
+Other than that,asset store only supports asset version which has x.y.z where x,y,z are integers.
+This supports 3 types of email notifications.
+1. A reviewer will receive a notification when new asset comes to "In_Review" state.
+2. Asset owner will receive a notification if his asset is rejected by reviewer.
+3. After a user downloaded an asset, he will receive email notifications on new versions of assets published on that asset
+To work 2 and 3, your user store need to have an email attribute connected to users.
+
+##How to Contribute
+Please report any issues you find or any suggestions to improvement as issues in this repository.
