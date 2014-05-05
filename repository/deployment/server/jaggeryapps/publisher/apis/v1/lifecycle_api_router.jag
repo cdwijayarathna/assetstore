@@ -351,9 +351,9 @@ require('/modules/publisher.js').exec(function (ctx) {
             }
 
             // attach comments to history items if they exist
-            json.item.forEach(function (item) {
+            /*json.item.forEach(function (item) {
                 item.comment = historyComments[item.order] || ''
-            });
+            });*/
 
             print(json);
 
