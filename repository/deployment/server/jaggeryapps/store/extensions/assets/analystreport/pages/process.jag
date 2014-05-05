@@ -29,24 +29,27 @@ require('/modules/store.js').exec(function (ctx) {
     var adminUser = usrconf.*::['Realm'].*::['Configuration'].*::['AdminUser'].*::['UserName'].text();
     var adminPassword = usrconf.*::['Realm'].*::['Configuration'].*::['AdminUser'].*::['Password'].text()
     var artifact = store.asset(type, aid);
-    var ws = require("ws"); 
-    var version = new ws.WSRequest(); 
-    var options = new Array(); 
-    options.useSOAP = 1.1; 
-    options.action = "urn:subscribe"; 
-    var to = "mailto:susbscribe:" + [connector.getEmailForUid(user.username)];
-   // var to = "mailto:cdwijayarathna@yahoo.com";// + [connector.getEmailForUid(user.username)];
-    var path_components = artifact.path.split("/");
-    var path = path_components[0];
-    for(var i=1;i<path_components.length -1;i++){
-        path = path + "/" + path_components[i];
-    }
-    log.info(path);
-    var payload = "<ser:subscribe xmlns:ser=\"http://services.info.registry.carbon.wso2.org\"><ser:path>" + path+ "/#</ser:path><ser:endpoint>" + to + "</ser:endpoint><ser:eventName>LifeCycleStateChanged</ser:eventName><ser:sessionId>42eeef27-b422-459b-817e-534a71a4663a</ser:sessionId></ser:subscribe>"
-    log.info(payload);
-    var result;
-
     try {
+        var ws = require("ws"); 
+        var version = new ws.WSRequest(); 
+        var options = new Array(); 
+        options.useSOAP = 1.1; 
+        options.action = "urn:subscribe";
+        //var um = server.userManager(server.current(session).tenantId);
+        //var receiver = [um.getClaim(artifact.attributes.overview_provider,"http://wso2.org/claims/emailaddress",null)];
+        var to = "mailto:susbscribe:" + [connector.getEmailForUid(user.username)];
+        var to = "mailto:cdwijayarathna@yahoo.com";// + [connector.getEmailForUid(user.username)];
+        var path_components = artifact.path.split("/");
+        var path = path_components[0];
+        for(var i=1;i<path_components.length -1;i++){
+            path = path + "/" + path_components[i];
+        }
+        log.info(path);
+        var payload = "<ser:subscribe xmlns:ser=\"http://services.info.registry.carbon.wso2.org\"><ser:path>" + path+ "/#</ser:path><ser:endpoint>" + to + "</ser:endpoint><ser:eventName>LifeCycleStateChanged</ser:eventName><ser:sessionId>42eeef27-b422-459b-817e-534a71a4663a</ser:sessionId></ser:subscribe>"
+        log.info(payload);
+        var result;
+
+    
         version.open(options,"https://localhost:9443/admin/services/InfoAdminService", false,adminUser.toString(),adminPassword.toString()); 
         version.send(payload); 
         result = version.responseE4X;
@@ -61,6 +64,5 @@ require('/modules/store.js').exec(function (ctx) {
     }
     store.subscribe(type, aid);
     response.sendRedirect(request.getParameter('destination'));
-
 }, request, response, session);
 %>
