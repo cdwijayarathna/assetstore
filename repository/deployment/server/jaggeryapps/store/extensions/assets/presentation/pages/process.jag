@@ -35,9 +35,7 @@ require('/modules/store.js').exec(function (ctx) {
         var options = new Array(); 
         options.useSOAP = 1.1; 
         options.action = "urn:subscribe";
-        //var um = server.userManager(server.current(session).tenantId);
-        //var receiver = [um.getClaim(artifact.attributes.overview_provider,"http://wso2.org/claims/emailaddress",null)];
-        var to = "mailto:susbscribe:" + [connector.getEmailForUid(user.username)];
+        var to = "mailto:subscribe:" + [connector.getEmailForUid(user.username)];
         var path_components = artifact.path.split("/");
         var path = path_components[0];
         for(var i=1;i<path_components.length -1;i++){

@@ -18,6 +18,8 @@ require('/modules/store.js').exec(function (ctx) {
     var LdapConnector = Packages.org.wso2.carbon.ldap.user.LDAPConnector;
     var connector = new LdapConnector();
     caramel = require('caramel');
+    log.info(ctx);
+    log.info(user);
 
     if (!user) {
         response.sendError(401, 'Unauthorized');
@@ -37,7 +39,7 @@ require('/modules/store.js').exec(function (ctx) {
         options.action = "urn:subscribe";
         //var um = server.userManager(server.current(session).tenantId);
         //var receiver = [um.getClaim(artifact.attributes.overview_provider,"http://wso2.org/claims/emailaddress",null)];
-        var to = "mailto:susbscribe:" + [connector.getEmailForUid(user.username)];
+        var to = "mailto:subscribe:" + [connector.getEmailForUid(user.username)];
         var path_components = artifact.path.split("/");
         var path = path_components[0];
         for(var i=1;i<path_components.length -1;i++){
