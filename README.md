@@ -10,31 +10,6 @@ Go to this link - https://github.com/cdwijayarathna/assetstoreemailhandler clone
 Edit the content in repository/conf/user-mgt.xml with relevent user store configurations and the mailto element in repository/conf/axis2/axis2.xml file with relevent email sender configurations. 
 
 Replace “localhost” in “AssertionConsumerService” elements at repository/conf/sso-idp-config.xml with ip-address of running server.
-eg - :
-
-<SSOIdentityProviderConfig>
-    <TenantRegistrationPage>https://stratos-local.wso2.com/carbon/tenant-register/select_domain.jsp</TenantRegistrationPage>
-    <ServiceProviders>
-        <ServiceProvider>
-            <Issuer>store</Issuer>
-            <AssertionConsumerService>https://192.168.3.33:9443/store/acs</AssertionConsumerService>
-            <SignResponse>true</SignResponse>
-            <CustomLoginPage>/store/login.jag</CustomLoginPage>
-        </ServiceProvider>
-        <ServiceProvider>
-            <Issuer>social</Issuer>
-            <AssertionConsumerService>https://192.168.3.33:9443/social/acs</AssertionConsumerService>
-            <SignResponse>true</SignResponse>
-            <CustomLoginPage>/social/login</CustomLoginPage>
-        </ServiceProvider>
-        <ServiceProvider>
-            <Issuer>publisher</Issuer>
-            <AssertionConsumerService>https://192.168.3.33:9443/publisher/acs</AssertionConsumerService>
-            <SignResponse>true</SignResponse>
-            <CustomLoginPage>/publisher/controllers/login.jag</CustomLoginPage>
-        </ServiceProvider>
-    </ServiceProviders>
-</SSOIdentityProviderConfig>
 
 Navigate to ESHome/bin and run the product(using sh wso2server.sh)
 
